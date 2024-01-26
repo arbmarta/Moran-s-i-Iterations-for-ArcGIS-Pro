@@ -26,6 +26,6 @@ for feature_class in feature_classes:
                                        ignore_index=True)
 
 # Print to a CSV
-output_csv = r"C:\Users\alexj\Documents\MSc Research\Chapter 2\Global Moran's i\output.csv" 
+output_csv = r"{file path}" 
 results_df.to_csv(output_csv, index=False)
 print("Analysis complete and results stored in " + output_csv)
