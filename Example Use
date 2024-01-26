@@ -1,10 +1,21 @@
-# Import necessary packages
 import arcpy
 import pandas as pd
 
 # Specify feature class and fields
-feature_classes = ["Edmonton", "Winnipeg", "Regina", "Calgary", "Lethbridge"]
-fields = ["CTUID_ExcelToTable_Median_Diameter__cm_", "CTUID_ExcelToTable_Trees_per_Hectare", "CTUID_ExcelToTable_Basal_Area_per_Hectare__m_"]
+feature_classes = ["WPG", "Reg", "Leth", "Calg", "Edm"]
+fields = [
+    "CTUID_Dataset_Median_Diameter__cm_", 
+    "CTUID_Dataset_Trees_per_Hectare", 
+    "CTUID_Dataset_Basal_Area_per_Hectare__m_", 
+    "CTUID_Dataset_Ash_Count", 
+    "CTUID_Dataset_Ash_Proportion", 
+    "CTUID_Dataset_Elm_Count", 
+    "CTUID_Dataset_Elm_Proportion", 
+    "CTUID_Dataset_Non_Resistant_Elm_Count", 
+    "CTUID_Dataset_Non_Resistant_Elm_Proportion", 
+    "CTUID_Dataset_Resistant_Elm_Count", 
+    "CTUID_Dataset_Resistant_Elm_Proportion"
+]
 
 # Construct a dataframe to hold the values
 results_df = pd.DataFrame(columns=["FeatureClass", "Field", "MoransI", "ZScore", "PValue"])
