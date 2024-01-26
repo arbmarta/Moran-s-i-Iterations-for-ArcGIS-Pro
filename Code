@@ -1,0 +1,32 @@
+# Import necessary packages
+import arcpy
+import pandas as pd
+
+# Specify feature class and fields
+feature_classes = ["FeatureClass1", "FeatureClass2", ...]
+fields = ["Field1", "Field2", ...]
+
+# Construct a dataframe to hold the values
+results_df = pd.DataFrame(columns=["FeatureClass", "Field", "MoransI", "ZScore", "PValue"])
+
+# Iterate through the options
+for feature_class in feature_classes:
+    for field in fields:
+        result = arcpy.stats.SpatialAutocorrelation(feature_class, field, [generate_report], [conceptualization of spatial relationship], [Distance Method], [Standardization], [Distance Band])
+        moransI = result.getOutput(0)
+        zScore = result.getOutput(1)
+        pValue = result.getOutput(2)
+
+        # Append results to the DataFrame
+        results_df = results_df.append({"FeatureClass": feature_class, 
+                                        "Field": field, 
+                                        "MoransI": moransI, 
+                                        "ZScore": zScore, 
+                                        "PValue": pValue}, 
+                                       ignore_index=True)
+
+# Print to a CSV
+output_csv = r"[file path]" 
+results_df.to_csv(output_csv, index=False)
+print("Analysis complete and results stored in " + output_csv)
+Analysis complete and results stored in [file path]
